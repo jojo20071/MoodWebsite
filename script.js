@@ -139,3 +139,21 @@ document.addEventListener('DOMContentLoaded', () => {
         alert(`Profile updated! \nName: ${name} \nEmail: ${email}`);
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const registerForm = document.getElementById('registerForm');
+
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const regUsername = document.getElementById('regUsername').value;
+        const regPassword = document.getElementById('regPassword').value;
+        const regEmail = document.getElementById('regEmail').value;
+
+        if (regUsername && regPassword && regEmail) {
+            alert(`Registration successful! \nUsername: ${regUsername} \nEmail: ${regEmail}`);
+            registerForm.reset();
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+});
