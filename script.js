@@ -54,3 +54,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const profileForm = document.getElementById('profileForm');
+
+    profileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('profileName').value;
+        const email = document.getElementById('profileEmail').value;
+
+        alert(`Profile updated! \nName: ${name} \nEmail: ${email}`);
+    });
+});

@@ -121,3 +121,28 @@ footer {
         width: 100%;
     }
 }
+.profile-entry {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+#profileForm {
+    display: grid;
+    gap: 10px;
+}
+
+#profileForm input {
+    width: 100%;
+    padding: 8px;
+}
+
+#profileForm button {
+    background-color: #2196F3;
+}
+
+#profileForm button:hover {
+    background-color: #0b7dda;
+}
