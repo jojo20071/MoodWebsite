@@ -36,3 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('theme', themeSelect.value);
     });
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginForm = document.getElementById('loginForm');
+
+    loginForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+
+        if (username === 'user' && password === 'password') {
+            alert('Login successful!');
+            document.getElementById('login').style.display = 'none';
+            document.querySelector('main').style.display = 'block';
+        } else {
+            alert('Invalid username or password.');
+        }
+    });
+});

@@ -101,3 +101,23 @@ footer {
     background-color: #555;
     border: 1px solid #444;
 }
+
+@media (max-width: 600px) {
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    form {
+        grid-template-columns: 1fr;
+    }
+
+    textarea {
+        width: 100%;
+    }
+}
