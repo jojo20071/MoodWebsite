@@ -182,3 +182,39 @@ document.addEventListener('DOMContentLoaded', () => {
         document.body.classList.add(savedTheme);
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const emotionForm = document.getElementById('emotionForm');
+    const historyList = document.getElementById('historyList');
+    const savedHistory = JSON.parse(localStorage.getItem('history')) || [];
+
+    const updateHistory = () => {
+        historyList.innerHTML = '';
+        savedHistory.forEach(entry => {
+            const historyEntry = document.createElement('div');
+            historyEntry.classList.add('history-entry');
+            historyEntry.innerHTML = `<strong>Category:</strong> ${entry.category} <br><strong>Emotion:</strong> ${entry.emotion} <br><strong>Note:</strong> ${entry.note}`;
+            historyList.appendChild(historyEntry);
+        });
+    };
+
+    updateHistory();
+
+    emotionForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const category = document.getElementById('emotionCategory').value;
+        const emotion = document.getElementById('emotion').value;
+        const note = document.getElementById('note').value;
+
+        if (emotion === '') {
+            alert('Please select an emotion.');
+            return;
+        }
+
+        const entry = { category, emotion, note };
+        savedHistory.push(entry);
+        localStorage.setItem('history', JSON.stringify(savedHistory));
+
+        updateHistory();
+        emotionForm.reset();
+    });
+});
