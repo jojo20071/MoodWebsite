@@ -157,3 +157,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+document.addEventListener('DOMContentLoaded', () => {
+    const profileForm = document.getElementById('profileForm');
+
+    profileForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('profileName').value;
+        const email = document.getElementById('profileEmail').value;
+        const bio = document.getElementById('profileBio').value;
+        alert(`Profile updated! \nName: ${name} \nEmail: ${email} \nBio: ${bio}`);
+    });
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const darkModeToggle = document.getElementById('darkModeToggle');
+
+    darkModeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark');
+        const currentTheme = document.body.classList.contains('dark') ? 'dark' : 'light';
+        localStorage.setItem('theme', currentTheme);
+    });
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        document.body.classList.add(savedTheme);
+    }
+});
